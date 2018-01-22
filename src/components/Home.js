@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import Results from './Results';
 
 
 
 class Home extends Component {
-  render() {
-    const { investment, total, percent, winlose, winlose2 } = this.props.globalState.status
+  resultsDisplay = () => {
+    return (this.props.globalState.status === '' ? '' : <Results globalState={this.props.globalState}/>)
+    }
+  
+  render () {
     return (
       <section className="">
       <div className="row">
@@ -22,11 +26,7 @@ class Home extends Component {
           />
           <button onClick={this.props.apiCall} className="btn" type="submit">Check</button>
         </div>
-        <div className="col-md-6">
-        <h3>Your ${investment} investment {winlose}</h3>
-          <h1 className="">${total}</h1>
-          <h4>{percent}% {winlose2}</h4>
-        </div>
+        {this.resultsDisplay()}
         <div className="ads"></div>
         </div>
       </section>

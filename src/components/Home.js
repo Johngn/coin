@@ -15,7 +15,7 @@ class Home extends Component {
     render() {
         return (
             <section className="">
-                <h2 className="main-heading">Bitcoin Profit Tracker</h2>
+                <h2 className="main-heading">Bitcoin Tracker</h2>
                 <div className="row">
                     <div className="col-md-6 left">
                         <h2 id="instructions">

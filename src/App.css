@@ -1,93 +1,102 @@
 body {
-  margin: 0 0 200px 0; 
-  padding: 0;
-  font-family: sans-serif;
-  background: linear-gradient(to top, rgb(0, 31, 72) 0%,rgb(0, 102, 55) 100%);
-  color: white;
+    margin: 0 0 200px 0;
+    padding: 0;
+    font-family: sans-serif;
+    /* background: linear-gradient(
+        to top,
+        rgb(88, 141, 211) 0%,
+        rgb(0, 102, 55) 100%
+    ); */
+    background-color: rgb(42, 70, 105);
+    background-size: cover;
+    color: white;
 }
 
 header {
-  padding: 17px 0;
-  margin-bottom: 70px;
+    padding: 17px 0;
+    margin-bottom: 70px;
 }
 
-.row > .col-md-6:last-child {
-  padding-top: 30px;
+.main-heading {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 40px;
+    text-align: center;
 }
 
 .col-md-6 > h2 {
-  padding-bottom: 30px;
-  text-align: center;
+    padding-bottom: 30px;
+    text-align: center;
 }
 
 label {
-  display: block;
-  text-transform: uppercase;
+    display: block;
+    text-transform: uppercase;
 }
 
 input {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 5px;
-  padding: 3px 6px;
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 6px;
 }
 
 .btn {
-  display: block;
-  background: #251577;
-  text-transform: uppercase;
-  font-weight: bold;
-  margin: 40px 0 50px 0;
-  float: right;
-  color: white;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 3px;
-  border: 1px solid #304ffe;
-  padding: 10px 20px;
-  transition: all .2s ease-in-out;
+    display: block;
+    background: #251577;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 40px 0 50px 0;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px solid #304ffe;
+    padding: 10px 20px;
+    transition: all 0.2s ease-in-out;
 }
 
 .btn:hover {
-  background: #304ffe;  
-  text-decoration: none;
-  color: white;
+    background: #304ffe;
+    text-decoration: none;
+    color: white;
 }
 
-.react-datepicker-wrapper, .react-datepicker__input-container {
-  width: 100%;
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+    width: 100%;
 }
 
 /* RESULTS */
 
 .row {
-  text-align: center;
+    text-align: center;
 }
 
 h1 {
-  color: #7d8ff1;
-  font-weight: lighter;
-  font-size: 4rem;
+    color: #7d8ff1;
+    font-weight: lighter;
+    font-size: 4rem;
 }
 
 h4 {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .ads {
-  margin: 70px auto;
-  background: grey;
-  height: 90px;
-  width: 728px;
+    margin: 70px auto;
+    background: grey;
+    height: 90px;
+    width: 728px;
 }
 
 .left {
-  text-align: left;
+    text-align: left;
 }
 
 #instructions {
-  text-align: left;
+    text-align: left;
 }

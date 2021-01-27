@@ -23,7 +23,7 @@ class Home extends Component {
                             the transaction to find total profit or loss
                         </p> */}
 
-                        <label>Amount</label>
+                        <label>Amount of bitcoins bought</label>
                         <input
                             onChange={this.props.inputChangeHandler}
                             value={this.props.globalState.cryptoAmount}

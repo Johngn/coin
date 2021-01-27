@@ -15,14 +15,15 @@ class Home extends Component {
     render() {
         return (
             <section className="">
-                <h2 className="main-heading">Bitcoin Tracker</h2>
+                {/* <h2 className="main-heading">Bitcoin Tracker</h2> */}
                 <div className="row">
                     <div className="col-md-6 left">
-                        <h2 id="instructions">
+                        {/* <p id="instructions">
                             Enter the number of bitcoins bought and the date of
                             the transaction to find total profit or loss
-                        </h2>
-                        <label>Price</label>
+                        </p> */}
+
+                        <label>Amount</label>
                         <input
                             onChange={this.props.inputChangeHandler}
                             value={this.props.globalState.cryptoAmount}

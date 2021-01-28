@@ -13,9 +13,9 @@ header {
 }
 
 .main-heading {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
     text-align: center;
 }
 
@@ -62,7 +62,24 @@ input {
 
 .react-datepicker-wrapper,
 .react-datepicker__input-container {
+    margin: 0;
+    padding: 0;
     width: 100%;
+}
+
+.react-datepicker__input-container input {
+    margin: 0;
+}
+
+.currency-select {
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.currency-amount {
+    margin: 0;
+    margin-bottom: 20px;
 }
 
 /* RESULTS */
@@ -70,7 +87,7 @@ input {
 .row {
     text-align: center;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     max-width: 800px;
 }
 
@@ -97,8 +114,13 @@ h4 {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 2px 2px 2px #000;
+    margin-bottom: 30px;
 }
 
 #instructions {
     text-align: left;
+}
+
+.red {
+    color: rgb(235, 63, 63);
 }

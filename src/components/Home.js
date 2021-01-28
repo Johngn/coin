@@ -5,7 +5,9 @@ import Results from "./Results";
 
 class Home extends Component {
     resultsDisplay = () => {
-        return this.props.globalState.status === "" ? (
+        return this.props.globalState.loading ? (
+            ""
+        ) : this.props.globalState.status === "" ? (
             ""
         ) : (
             <Results globalState={this.props.globalState} />
@@ -15,7 +17,7 @@ class Home extends Component {
     render() {
         return (
             <section className="">
-                {/* <h2 className="main-heading">Bitcoin Tracker</h2> */}
+                {/* <h4 className="main-heading">Bitcoin Tracker</h4> */}
                 <div className="row">
                     <div className="col-md-6 left">
                         {/* <p id="instructions">
@@ -23,8 +25,18 @@ class Home extends Component {
                             the transaction to find total profit or loss
                         </p> */}
 
-                        <label>Amount of bitcoins bought</label>
+                        <label>Currency</label>
+                        <select
+                            className="currency-select"
+                            onChange={this.props.selectChangeHandler}
+                            value={this.props.globalState.currency}
+                        >
+                            <option value="BTC">Bitcoin</option>
+                            <option value="ETH">Ethereum</option>
+                        </select>
+                        <label>Amount</label>
                         <input
+                            className="currency-amount"
                             onChange={this.props.inputChangeHandler}
                             value={this.props.globalState.cryptoAmount}
                             type="number"

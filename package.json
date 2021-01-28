@@ -5,13 +5,16 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^4.0.0",
+    "classnames": "^2.2.6",
     "moment": "^2.20.1",
     "proptypes": "^1.1.0",
     "react": "^16.2.0",
     "react-date-picker": "^6.7.0",
     "react-datepicker": "^1.0.4",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.0"
+    "react-scripts": "1.1.0",
+    "react-spinner": "^0.2.7",
+    "react-spinners": "^0.10.4"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -8,13 +8,15 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            name: "John",
             date: moment(),
             data: "",
             btcToday: "",
+            ethToday: "",
             cryptoAmount: 1,
             status: "",
             symbols: [],
+            currency: "BTC",
+            loading: true,
         };
     }
 
@@ -27,6 +29,12 @@ class App extends Component {
     inputChangeHandler = e => {
         this.setState({
             cryptoAmount: e.target.value,
+        });
+    };
+
+    selectChangeHandler = e => {
+        this.setState({
+            currency: e.target.value,
         });
     };
 
@@ -43,19 +51,43 @@ class App extends Component {
             .catch(error => {
                 console.log(error);
             });
-    };
 
-    apiCall = () => {
         axios
             .get(
-                `https://min-api.cryptocompare.com/data/pricehistorical?fsym=BTC&tsyms=BTC,USD,EUR&ts=${this.state.date.unix()}&extraParams=cryptocoin`
+                `https://min-api.cryptocompare.com/data/pricehistorical?fsym=ETH&tsyms=ETH,USD,EUR&ts=${moment().unix()}&extraParams=cryptocoin`
             )
             .then(response => {
                 this.setState({
-                    btcOld: response.data.BTC.USD,
+                    ethToday: response.data.ETH.USD,
                 });
-                const CP = this.state.btcOld;
-                const SP = this.state.btcToday;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
+    apiCall = () => {
+        this.setState({ loading: true });
+
+        axios
+            .get(
+                `https://min-api.cryptocompare.com/data/pricehistorical?fsym=${
+                    this.state.currency
+                }&tsyms=${
+                    this.state.currency
+                },USD,EUR&ts=${this.state.date.unix()}&extraParams=cryptocoin`
+            )
+            .then(response => {
+                let CP = "";
+                let SP = "";
+                if (response.data.BTC) {
+                    CP = response.data.BTC.USD;
+                    SP = this.state.btcToday;
+                } else if (response.data.ETH) {
+                    CP = response.data.ETH.USD;
+                    SP = this.state.ethToday;
+                }
+
                 if (CP < SP) {
                     let profit = SP - CP;
                     let percentProfit = (profit / CP) * 100;
@@ -66,6 +98,7 @@ class App extends Component {
                     let investment = this.state.cryptoAmount * CP;
                     this.setState({
                         location: "results",
+                        loading: false,
                         status: {
                             total: totalProfit,
                             investment: investment,
@@ -82,6 +115,7 @@ class App extends Component {
                     let investment = this.state.cryptoAmount * CP;
                     this.setState({
                         location: "results",
+                        loading: false,
                         status: {
                             total: totalLoss,
                             investment: investment,
@@ -101,6 +135,7 @@ class App extends Component {
         return (
             <div className="home container">
                 <Home
+                    selectChangeHandler={this.selectChangeHandler}
                     handleDateChange={this.handleDateChange}
                     globalState={this.state}
                     inputChangeHandler={this.inputChangeHandler}

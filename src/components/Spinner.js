@@ -10,7 +10,7 @@ export default class Spinner extends Component {
                     alt=""
                 /> */}
                 <div className="spinner-border" role="status">
-                    <span>Loading...</span>
+                    <span>Calculating...</span>
                 </div>
             </div>
         );

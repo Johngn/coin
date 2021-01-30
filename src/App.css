@@ -134,3 +134,7 @@ h4 {
 .spinner-border {
     margin-top: 100px;
 }
+
+.btn {
+    width: 100%;
+}

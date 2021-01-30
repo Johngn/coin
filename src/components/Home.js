@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Results from "./Results";
+import Spinner from "./Spinner";
 
 class Home extends Component {
     resultsDisplay = () => {
         return this.props.globalState.loading ? (
-            ""
-        ) : this.props.globalState.status === "" ? (
+            <Spinner />
+        ) : this.props.globalState.total === 0 ? (
             ""
         ) : (
             <Results globalState={this.props.globalState} />
@@ -25,22 +26,36 @@ class Home extends Component {
                             the transaction to find total profit or loss
                         </p> */}
 
-                        <label>Currency</label>
+                        <label>Cryptocurrency</label>
                         <select
+                            name="currency"
                             className="currency-select"
-                            onChange={this.props.selectChangeHandler}
+                            onChange={this.props.changeHandler}
                             value={this.props.globalState.currency}
                         >
                             <option value="BTC">Bitcoin</option>
                             <option value="ETH">Ethereum</option>
+                            <option value="DOGE">Dogecoin</option>
                         </select>
+
+                        <label>Bought with</label>
+                        <select
+                            name="originalCurrency"
+                            className="currency-select"
+                            onChange={this.props.changeHandler}
+                            value={this.props.globalState.originalCurrency}
+                        >
+                            <option value="EUR">Euro</option>
+                            <option value="USD">Dollars</option>
+                        </select>
+
                         <label>Amount</label>
                         <input
                             className="currency-amount"
-                            onChange={this.props.inputChangeHandler}
+                            onChange={this.props.changeHandler}
                             value={this.props.globalState.cryptoAmount}
                             type="number"
-                            name="price"
+                            name="cryptoAmount"
                         />
                         <label>Date</label>
                         <DatePicker

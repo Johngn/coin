@@ -6,23 +6,25 @@ const Results = props => {
         investment,
         total,
         percent,
-        winlose,
-        winlose2,
-    } = props.globalState.status;
+        originalCurrencyFinal,
+    } = props.globalState;
     return (
         <div className="col-md-6">
             <h3>
-                Your ${investment} investment {winlose}
+                Your{" "}
+                {originalCurrencyFinal === "USD" ? "$" : <span>&euro;</span>}
+                {investment} investment {total > 0 ? "made" : "lost"}
             </h3>
             <h1
                 className={classNames({
-                    red: winlose === "lost",
+                    red: total < 0,
                 })}
             >
-                ${total}
+                {originalCurrencyFinal === "USD" ? "$" : <span>&euro;</span>}
+                {total}
             </h1>
             <h4>
-                {percent}% {winlose2}
+                which is a {percent}% {total > 0 ? "profit" : "loss"}
             </h4>
         </div>
     );

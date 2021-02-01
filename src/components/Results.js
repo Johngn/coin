@@ -8,12 +8,16 @@ const Results = props => {
         percent,
         originalCurrencyFinal,
     } = props.globalState;
+
     return (
-        <div className="col-md-6">
+        <div className="col-md-6 results">
             <h3>
                 Your{" "}
                 {originalCurrencyFinal === "USD" ? "$" : <span>&euro;</span>}
-                {investment} investment {total > 0 ? "made" : "lost"}
+                {parseFloat(investment).toLocaleString("en", {
+                    minimumFractionDigits: 2,
+                })}{" "}
+                investment {total > 0 ? "made" : "lost"}
             </h3>
             <h1
                 className={classNames({
@@ -21,7 +25,9 @@ const Results = props => {
                 })}
             >
                 {originalCurrencyFinal === "USD" ? "$" : <span>&euro;</span>}
-                {total}
+                {Number(total).toLocaleString("en", {
+                    minimumFractionDigits: 2,
+                })}
             </h1>
             <h4>
                 which is a {percent}% {total > 0 ? "profit" : "loss"}

@@ -38,6 +38,15 @@ class Home extends Component {
                             <option value="DOGE">Dogecoin</option>
                         </select>
 
+                        <label>Amount</label>
+                        <input
+                            className="currency-amount"
+                            onChange={this.props.changeHandler}
+                            value={this.props.globalState.cryptoAmount}
+                            type="number"
+                            name="cryptoAmount"
+                        />
+
                         <label>Bought with</label>
                         <select
                             name="originalCurrency"
@@ -49,14 +58,6 @@ class Home extends Component {
                             <option value="USD">Dollars</option>
                         </select>
 
-                        <label>Amount</label>
-                        <input
-                            className="currency-amount"
-                            onChange={this.props.changeHandler}
-                            value={this.props.globalState.cryptoAmount}
-                            type="number"
-                            name="cryptoAmount"
-                        />
                         <label>Date</label>
                         <DatePicker
                             selected={this.props.globalState.date}
